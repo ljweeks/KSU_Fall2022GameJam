@@ -22,6 +22,7 @@ func _process(delta):
 		powered = true
 		if tick > tickRate:
 			Game.overload -= coolPower
+			print("cooling")
 			tick = 0
 	else:
 		powered = false

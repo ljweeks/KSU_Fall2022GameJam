@@ -105,7 +105,7 @@ position = Vector2( 208, 80 )
 position = Vector2( -360, -152 )
 
 [node name="BatteryHolder2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( -114, 66 )
+position = Vector2( -136, 128 )
 
 [node name="Fan" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( -280, -224 )
@@ -130,7 +130,7 @@ position = Vector2( 80, -280 )
 position = Vector2( 120, -8 )
 
 [node name="Outlet" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 132, -37 )
+position = Vector2( 104, -16 )
 
 [node name="Plug" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 56, 82 )

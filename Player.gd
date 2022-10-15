@@ -6,9 +6,9 @@ export (int) var speed = 500
 
 onready var animTree = $AnimationTree
 onready var animationState = animTree.get("parameters/playback")
-
+onready var Game = get_node("/root/Game")
 var walking = false
-
+var sicko = false
 
 #player velocity
 var velocity = Vector2()
@@ -86,7 +86,21 @@ func rightShot(delta):
 func _process(delta):
 	user_input()
 	shoot(delta)
-	
+	if(Game.overload > 100):
+		sicko(true)
+	if(Game.overload < 90):
+		sicko(false)
+
+func sicko(input):
+	if(input):
+		attackSpeed = 0.1
+		speed = 750
+		bulletSpeed = 2000
+	else:
+		attackSpeed = 0.2
+		speed = 500
+		bulletSpeed = 1000
+
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
