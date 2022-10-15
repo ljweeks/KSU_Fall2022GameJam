@@ -55,7 +55,7 @@ func _on_BatteryGrabArea_body_entered(body):
 		addBattery(body)
 
 
-func _on_EnemyTarget_enemy_hit():
+func _on_EnemyTarget_enemy_hit(item):
 	if (myBattery):
 		var lastBattery = myBattery
 		removeBattery()
