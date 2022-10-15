@@ -8,7 +8,7 @@ export (int) var speed = 500
 #player velocity
 var velocity = Vector2()
 #time between shots
-var attackSpeed = 0.5
+var attackSpeed = 0.2
 var shootTime = 0.00
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +50,7 @@ func leftShot():
 
 
 func rightShot(delta):
-	for i in 5:
+	for i in 3:
 		var freezeBullet = load("res://Player/freezeBullet.tscn").instance()
 		freezeBullet.global_position = $ShootPoint.global_position
 		freezeBullet.look_at(freezeBullet.global_position + freezeBullet.direction)
