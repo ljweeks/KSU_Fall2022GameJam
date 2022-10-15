@@ -1,14 +1,12 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Pipes/HorizConnector.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pipes/HortizPipeCore.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pipes/pipeplus.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Pipes/VertiPipeCore.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Pipes/pipeground.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Pipes/VertConnecter.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Pipes/HoriPipeT.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Pipes/VertiPipeT.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Pipes/pipeground_flipped.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -102,7 +100,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 } ]
 2/z_index = 0
 3/name = "pipeground.png 3"
-3/texture = ExtResource( 5 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 32, 32 )
@@ -207,7 +204,6 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 } ]
 7/z_index = 0
 8/name = "pipeground_flipped.png 8"
-8/texture = ExtResource( 9 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 32, 32 )

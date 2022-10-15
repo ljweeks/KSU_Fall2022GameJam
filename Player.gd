@@ -93,7 +93,7 @@ func _process(delta):
 
 func sicko(input):
 	if(input):
-		attackSpeed = 0.1
+		attackSpeed = 0.05
 		speed = 750
 		bulletSpeed = 2000
 	else:

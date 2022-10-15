@@ -517,7 +517,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=77]
-height = 6.0
+radius = 19.0
+height = 1.99997
 
 [node name="Node2D" type="KinematicBody2D"]
 position = Vector2( 0, -21 )
@@ -550,6 +551,6 @@ anims/WalkRight = SubResource( 67 )
 anims/WalkUp = SubResource( 69 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 21 )
+position = Vector2( 0, 12 )
 rotation = 1.57079
 shape = SubResource( 77 )
