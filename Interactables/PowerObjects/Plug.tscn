@@ -72,8 +72,8 @@ bias = 0.9
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="."]
 position = Vector2( 72, 24 )
-node_a = NodePath("../RigidBody2D4")
-node_b = NodePath("../PlugEnd")
+node_a = NodePath("../PlugEnd")
+node_b = NodePath("../RigidBody2D4")
 bias = 0.9
 
 [node name="PlugEnd" type="RigidBody2D" parent="."]
