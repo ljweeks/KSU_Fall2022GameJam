@@ -8,7 +8,7 @@ var myBattery
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$AttachPoint/BatterySprite.visible = false
 		
 func removeBattery():
 	if myBattery is Battery:
@@ -17,7 +17,8 @@ func removeBattery():
 		
 		myBattery.mode = RigidBody2D.MODE_RIGID
 		$PowerArea.providingPower = false
-		myBattery.get_parent().remove_child(myBattery)
+		$AttachPoint/BatterySprite.visible = false
+		# myBattery.get_parent().remove_child(myBattery)
 		get_parent().add_child(myBattery)
 		myBattery.position = position + $AttachPoint.position
 		myBattery = null
@@ -32,7 +33,8 @@ func addBattery(newBattery):
 	if newBattery is Battery:
 		myBattery = newBattery
 		newBattery.get_parent().remove_child(newBattery)
-		add_child(newBattery)
+		$AttachPoint/BatterySprite.visible = true
+		# add_child(newBattery)
 		newBattery.set_mode(RigidBody2D.MODE_KINEMATIC)
 		newBattery.position = $AttachPoint.position
 		newBattery.rotation = $AttachPoint.rotation
@@ -46,3 +48,10 @@ func addBattery(newBattery):
 func _on_BatteryGrabArea_body_entered(body):
 	if body is Battery:
 		addBattery(body)
+
+
+func _on_EnemyTarget_enemy_hit():
+	if (myBattery):
+		var lastBattery = myBattery
+		removeBattery()
+		lastBattery.queue_free()

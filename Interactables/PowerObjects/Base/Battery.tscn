@@ -10,7 +10,7 @@ extents = Vector2( 16, 16 )
 collision_layer = 3
 collision_mask = 3
 mass = 5.0
-gravity_scale = 128.0
+gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource( 2 )
 
