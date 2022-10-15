@@ -530,7 +530,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 54 )
-frame = 5
+frame = 2
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 55 )

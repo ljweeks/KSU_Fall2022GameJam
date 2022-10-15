@@ -14,6 +14,6 @@ func _ready():
 
 func enemyHit(body):
 	if body is enemyBullet:
-		emit_signal("enemy_hit")
+		emit_signal("enemy_hit", (body.global_position - global_position).normalized())
 		body.queue_free()
 
