@@ -130,7 +130,7 @@ position = Vector2( 80, -280 )
 position = Vector2( 120, -8 )
 
 [node name="Outlet" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 148, 5 )
+position = Vector2( 132, -37 )
 
 [node name="Plug" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 56, 82 )
