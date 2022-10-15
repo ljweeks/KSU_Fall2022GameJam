@@ -44,12 +44,14 @@ func collide(body):
 
 var bulletSpeed = 200
 func attack():
+	
 	var bullet = load("res://Enemies/enemyBullet.tscn").instance()
 	get_parent().add_child(bullet)
 	bullet.direction = (target.global_position - self.global_position).normalized()
 	bullet.global_position = self.global_position + bullet.direction*100
 	bullet.look_at(bullet.global_position + bullet.direction)
 	bullet.apply_central_impulse(bullet.direction*bulletSpeed)
+	self.apply_central_impulse(bullet.direction*-5000)
 
 
 func damaged(amount):
