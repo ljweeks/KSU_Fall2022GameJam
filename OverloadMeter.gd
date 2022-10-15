@@ -11,6 +11,6 @@ onready var Game = get_node("/root/Game")
 func _ready():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
-	self.value = Game.overload
+		self.value = Game.overload

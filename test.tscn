@@ -14,10 +14,11 @@
 current = true
 
 [node name="offest" type="Node2D" parent="Node2D/Camera2D"]
-position = Vector2( 0, -128 )
+position = Vector2( 0, -300 )
 
 [node name="ProgressBar" parent="Node2D/Camera2D/offest" instance=ExtResource( 5 )]
-margin_right = 4.0
+margin_left = -200.0
+margin_right = 200.0
 margin_bottom = 14.0
 
 [node name="Node2D2" parent="." instance=ExtResource( 2 )]
