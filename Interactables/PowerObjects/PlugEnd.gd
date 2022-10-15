@@ -5,7 +5,7 @@ var plugged = false setget on_plug
 
 func on_plug(new_value):
 	if (new_value):
-		set_mode(RigidBody2D.MODE_STATIC)
+		set_mode(RigidBody2D.MODE_KINEMATIC)
 	else:
 		set_mode(RigidBody2D.MODE_RIGID)
 	plugged = new_value
