@@ -23,4 +23,6 @@ func _process(delta):
 	
 func _on_body_entered(body):
 	if(not body is Player):
+		if(body.has_method("freeze")):
+			body.freeze()
 		queue_free()
