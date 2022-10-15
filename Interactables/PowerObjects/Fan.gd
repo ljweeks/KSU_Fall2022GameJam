@@ -1,3 +1,5 @@
+class_name Fan
+
 extends StaticBody2D
 
 onready var powerableObject = $PowerableObject as PowerableObject

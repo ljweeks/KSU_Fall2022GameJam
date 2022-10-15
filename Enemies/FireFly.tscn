@@ -91,7 +91,7 @@ shape = SubResource( 1 )
 [node name="animatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 14 )
 animation = "FireFlyAnimation"
-frame = 8
+frame = 3
 playing = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
