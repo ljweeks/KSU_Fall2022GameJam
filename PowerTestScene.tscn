@@ -21,7 +21,7 @@ position = Vector2( 232, 114 )
 position = Vector2( 212, 150 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 187, 392 )
+position = Vector2( 464, 274 )
 
 [node name="Battery" parent="." instance=ExtResource( 5 )]
 position = Vector2( 180, 297 )

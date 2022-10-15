@@ -43,4 +43,4 @@ func _process(delta):
 func spawnEnemy():
 	var enemy = load("res://Enemies/FireFly.tscn").instance()
 	get_parent().add_child(enemy)
-	enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position
+	#enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position
