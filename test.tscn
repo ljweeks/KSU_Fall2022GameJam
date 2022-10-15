@@ -28,6 +28,7 @@ script = ExtResource( 9 )
 navpoly = SubResource( 1 )
 
 [node name="Node2D" parent="YSort" instance=ExtResource( 1 )]
+z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Node2D"]
 current = true
@@ -104,6 +105,9 @@ position = Vector2( 208, 80 )
 [node name="BatteryHolder" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -360, -152 )
 
+[node name="BatteryHolder" parent="YSort/BatteryHolder" instance=ExtResource( 7 )]
+position = Vector2( 32, 192 )
+
 [node name="BatteryHolder2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( -136, 128 )
 
@@ -111,11 +115,13 @@ position = Vector2( -136, 128 )
 position = Vector2( -280, -224 )
 collision_layer = 3
 collision_mask = 3
+fanDirection = 1
 
 [node name="Fan2" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 85, -101 )
 collision_layer = 3
 collision_mask = 3
+fanDirection = 1
 
 [node name="EnemySpawn" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( -128, 120 )

@@ -6,11 +6,11 @@ onready var overload = 0
 # var b = "text"
 var maxTemp = 150
 var enemySpawnPoints
-
+var batterySpawnPoints
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	enemySpawnPoints = get_tree().get_nodes_in_group("EnemySpawn")
-
+	batterySpawnPoints = get_tree().get_nodes_in_group("BatterySpawn")
 
 
 # how often things happen
@@ -43,12 +43,15 @@ func _process(delta):
 	if(batterySpawnTick > batterySpawnRate):
 		spawnBattery()
 		batterySpawnTick = 0
-
-func spawnBattery():
-	var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
-	get_parent().add_child(battery)
 		
+export (int) var totalBattery = 5
+func spawnBattery():
+	if get_tree().get_nodes_in_group("battery").size() < totalBattery:
+		var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
+		get_parent().add_child(battery)
+		battery.global_position = batterySpawnPoints[rand_range(0, batterySpawnPoints.size())].global_position
+
 func spawnEnemy():
 	var enemy = load("res://Enemies/FireFly.tscn").instance()
 	get_parent().add_child(enemy)
-	#enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position
+	enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position

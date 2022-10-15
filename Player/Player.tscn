@@ -553,4 +553,5 @@ anims/WalkUp = SubResource( 69 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
 rotation = 1.57079
+z_index = 2
 shape = SubResource( 77 )
