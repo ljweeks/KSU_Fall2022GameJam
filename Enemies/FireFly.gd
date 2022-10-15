@@ -4,7 +4,7 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var health = 10
 var target
 export (float) var speed = 100
 onready var nav = get_node("NavigationAgent2D")
@@ -20,3 +20,8 @@ func _process(delta):
 	var moveTo = nav.get_next_location()
 	var moveTarget = (moveTo - self.global_position).normalized()
 	self.apply_central_impulse(moveTarget*speed)
+
+func damaged(amount):
+	health -= amount
+	if(health <=0):
+		queue_free()

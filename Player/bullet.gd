@@ -6,7 +6,7 @@ extends RigidBody2D
 # var b = "text"
 var speed = 300
 var direction = Vector2(1, 0)
-
+export (int) var damage = 3
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +21,8 @@ func _ready():
 
 func _on_body_entered(body):
 	if(not body is Player):
+		if body.has_method("damaged"):
+			body.damaged(damage)
 		queue_free()
 		
 func collide(body):
