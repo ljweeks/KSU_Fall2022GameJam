@@ -18,6 +18,7 @@ func release_plug(direction):
 		current_plug = null
 		collision_disable_timer = 1
 		$PowerArea.providingPower = false
+		$EnemyTarget.target_active = false
 
 func add_plug(body):
 	body.plugged = true
@@ -28,6 +29,7 @@ func add_plug(body):
 	body.global_position = global_position
 	
 	$PowerArea.providingPower = true
+	$EnemyTarget.target_active = true
 
 func _on_Area2D_body_entered(body):
 	if body is PlugEnd and current_plug == null:

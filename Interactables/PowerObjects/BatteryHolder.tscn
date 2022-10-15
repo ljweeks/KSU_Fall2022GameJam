@@ -27,8 +27,9 @@ position = Vector2( 0, 22 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatteryGrabArea"]
 shape = SubResource( 1 )
 
-[node name="EnemyTarget" parent="." groups=["EnemyTarget"] instance=ExtResource( 4 )]
+[node name="EnemyTarget" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 22 )
+target_active = false
 
 [connection signal="body_entered" from="BatteryGrabArea" to="." method="_on_BatteryGrabArea_body_entered"]
 [connection signal="enemy_hit" from="EnemyTarget" to="." method="_on_EnemyTarget_enemy_hit"]

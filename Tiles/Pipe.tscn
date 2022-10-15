@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tiles/Pipe.gd" type="Script" id=1]
 [ext_resource path="res://white.png" type="Texture" id=2]
+[ext_resource path="res://Interactables/PowerObjects/Base/EnemyTarget.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -14,3 +15,8 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="EnemyTarget" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 2.64, 2.64 )
+
+[connection signal="enemy_hit" from="EnemyTarget" to="." method="_on_EnemyTarget_enemy_hit"]

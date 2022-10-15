@@ -25,6 +25,7 @@ func removeBattery():
 		get_parent().add_child(myBattery)
 		myBattery.position = position + $AttachPoint.position
 		myBattery = null
+		$EnemyTarget.target_active = false
 		
 		yield(get_tree().create_timer(1), "timeout")
 		$BatteryGrabArea/CollisionShape2D.disabled = false
@@ -43,6 +44,7 @@ func addBattery(newBattery):
 		newBattery.rotation = $AttachPoint.rotation
 		newBattery.sleeping = true
 		$PowerArea.providingPower = true
+		$EnemyTarget.target_active = true
 		
 		#yield(get_tree().create_timer(1.0), "timeout")
 		#removeBattery()
