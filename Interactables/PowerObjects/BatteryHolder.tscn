@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interactables/PowerObjects/Base/PowerArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/PowerObjects/BatteryHolder.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Interactables/PowerObjects/Base/EnemyTarget.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -9,13 +11,24 @@
 script = ExtResource( 2 )
 
 [node name="PowerArea" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2.2391, 2.2391 )
+providingPower = false
 
 [node name="AttachPoint" type="Node2D" parent="."]
+position = Vector2( 0, 22 )
+
+[node name="BatterySprite" type="Sprite" parent="AttachPoint"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 3 )
 
 [node name="BatteryGrabArea" type="Area2D" parent="."]
+position = Vector2( 0, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatteryGrabArea"]
-position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
+[node name="EnemyTarget" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 22 )
+
 [connection signal="body_entered" from="BatteryGrabArea" to="." method="_on_BatteryGrabArea_body_entered"]
+[connection signal="enemy_hit" from="EnemyTarget" to="." method="_on_EnemyTarget_enemy_hit"]
