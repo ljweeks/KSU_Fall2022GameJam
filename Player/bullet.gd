@@ -6,8 +6,21 @@ extends RigidBody2D
 # var b = "text"
 var speed = 300
 var direction = Vector2(1, 0)
-export (int) var damage = 3
+export (int) var baseDamage = 3
+onready var damage = baseDamage
+onready var Game = get_node("/root/Game")
 
+func _process(delta):
+	if(Game.overload > 100):
+		sicko(true)
+	if(Game.overload < 90):
+		sicko(false)
+
+func sicko(input):
+	if(input):
+		damage = 10
+	else:
+		damage = baseDamage
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

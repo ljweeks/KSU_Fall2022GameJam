@@ -1,7 +1,8 @@
 class_name Fan
 
 extends StaticBody2D
-
+enum direction {blow_up, blow_down, blow_left, blow_right}
+export (direction) var fanDirection 
 onready var powerableObject = $PowerableObject as PowerableObject
 onready var Game = get_node("/root/Game")
 # Declare member variables here. Examples:
@@ -11,9 +12,19 @@ onready var Game = get_node("/root/Game")
 var powered
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	fanDir()
 export (float) var tickRate = 1
 var tick = 0
+
+func fanDir():
+	if(fanDirection == direction.blow_up):
+			$AnimatedSprite.play("blow_up", false)
+	if(fanDirection == direction.blow_down):
+			$AnimatedSprite.play("blow_down", false)
+	if(fanDirection == direction.blow_left):
+			$AnimatedSprite.play("blow_left", false)
+	if(fanDirection == direction.blow_right):
+			$AnimatedSprite.play("blow_right", false)
 
 export (float) var coolPower = 5
 func _process(delta):
@@ -22,6 +33,8 @@ func _process(delta):
 		powered = true
 		if tick > tickRate:
 			Game.overload -= coolPower
+			fanDir()
 			tick = 0
 	else:
 		powered = false
+		$AnimatedSprite.stop()
