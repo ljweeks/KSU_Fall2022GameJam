@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/basicWall.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Tiles/Game.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/ProgressBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tiles/Pipe.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interactables/PowerObjects/BatteryHolder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Interactables/PowerObjects/Fan.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -74,7 +76,6 @@ collision_mask = 3
 
 [node name="Battery" parent="." instance=ExtResource( 3 )]
 position = Vector2( -240, 32 )
-gravity_scale = 0.0
 
 [node name="Game" parent="." instance=ExtResource( 4 )]
 
@@ -86,3 +87,11 @@ position = Vector2( 208, -48 )
 
 [node name="Pipe3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 208, 80 )
+
+[node name="BatteryHolder" parent="." instance=ExtResource( 7 )]
+position = Vector2( -360, -152 )
+
+[node name="Fan" parent="." instance=ExtResource( 8 )]
+position = Vector2( -280, -224 )
+collision_layer = 3
+collision_mask = 3

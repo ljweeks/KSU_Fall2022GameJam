@@ -57,11 +57,12 @@ func leftShot():
 func rightShot(delta):
 	for i in 3:
 		var freezeBullet = load("res://Player/freezeBullet.tscn").instance()
+		get_parent().add_child(freezeBullet)
 		freezeBullet.global_position = $ShootPoint.global_position
 		freezeBullet.look_at(freezeBullet.global_position + freezeBullet.direction)
 		freezeBullet.direction = (get_global_mouse_position() - freezeBullet.global_position).normalized().rotated(rand_range(-PI / 10, PI / 10))
 		#freezeBullet.direction = freezeBullet.direction.angle
-		get_parent().add_child(freezeBullet)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 

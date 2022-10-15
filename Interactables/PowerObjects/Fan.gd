@@ -14,6 +14,6 @@ func _ready():
 
 func _process(delta):
 	if powerableObject.powered:
-		pass
+		print("powered")
 	else:
 		pass
