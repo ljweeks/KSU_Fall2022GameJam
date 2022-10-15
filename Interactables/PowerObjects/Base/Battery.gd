@@ -9,6 +9,7 @@ var startMass
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	startMass = self.mass
+	self.friction = 1
 
 export (float) var coldTime = 5
 var curColdTime = 0

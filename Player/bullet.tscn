@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="bullet" type="RigidBody2D"]
+mass = 5.0
 gravity_scale = 0.0
 script = ExtResource( 1 )
 
