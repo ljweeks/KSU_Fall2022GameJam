@@ -15,13 +15,14 @@ func _ready():
 var thisHeat : float = 0
 export (float) var tickRate = 3
 var tick = 0
+export (float) var heatIncreaseAmountPerTick = 0.1
 
 func _process(delta):
 	tick += delta
 	if(tick > tickRate):
 		tick = 0
 		Game.overload += thisHeat
-		thisHeat += 1
+		thisHeat += heatIncreaseAmountPerTick
 		if(thisHeat > maxHeat):
 			thisHeat = maxHeat
 		$Sprite.modulate = Color((thisHeat/5), 0, (-thisHeat/5))
@@ -33,4 +34,4 @@ func freeze():
 
 
 func _on_EnemyTarget_enemy_hit():
-	thisHeat += 3
+	thisHeat += 2
