@@ -16,14 +16,17 @@ func _ready():
 # how often things happen
 var tickRate = 1
 var enemySpawnRate = 5
+var batterySpawnRate = 10
 
 var enemySpawnRateTick = 0
 var tick = 0
+var batterySpawnTick = 0
 
 func _process(delta):
 	
 	tick += delta
 	enemySpawnRateTick += delta
+	batterySpawnTick += delta
 	
 	if(tick > tickRate):
 		overload += 1
@@ -36,9 +39,14 @@ func _process(delta):
 	if(enemySpawnRateTick > enemySpawnRate):
 		spawnEnemy()
 		enemySpawnRateTick = 0
+		
+	if(batterySpawnTick > batterySpawnRate):
+		spawnBattery()
+		batterySpawnTick = 0
 
-
-
+func spawnBattery():
+	var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
+	get_parent().add_child(battery)
 		
 func spawnEnemy():
 	var enemy = load("res://Enemies/FireFly.tscn").instance()
