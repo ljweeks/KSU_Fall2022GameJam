@@ -9,9 +9,11 @@ signal enemy_hit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	connect("body_entered", self, "enemyHit")
 
 
-func enemyHit():
-	emit_signal("enemy_hit")
+func enemyHit(body):
+	if body is enemyBullet:
+		emit_signal("enemy_hit")
+		body.queue_free()
 
