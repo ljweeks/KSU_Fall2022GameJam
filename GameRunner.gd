@@ -50,7 +50,7 @@ func spawnBattery():
 		var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
 		get_parent().add_child(battery)
 		battery.global_position = batterySpawnPoints[rand_range(0, batterySpawnPoints.size())].global_position
-		
+
 func spawnEnemy():
 	var enemy = load("res://Enemies/FireFly.tscn").instance()
 	get_parent().add_child(enemy)
