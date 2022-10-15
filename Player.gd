@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 #can change player speed
