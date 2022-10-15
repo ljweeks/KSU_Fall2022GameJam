@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Interactables/PowerObjects/Base/PowerArea.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/PowerObjects/Base/PowerableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interactables/PowerObjects/BatteryHolder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interactables/PowerObjects/Base/Battery.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PowerableObject" parent="." instance=ExtResource( 2 )]
+[node name="BatteryHolder" parent="." instance=ExtResource( 4 )]
+position = Vector2( 180, 135 )
+scale = Vector2( 3.03428, 2.94197 )
 
-[node name="PowerArea" parent="." instance=ExtResource( 1 )]
-position = Vector2( 23, 22 )
+[node name="PowerableObject" parent="." instance=ExtResource( 2 )]
+position = Vector2( 224, 98 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 7, 2 )
+position = Vector2( 212, 150 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 187, 392 )
+
+[node name="Battery" parent="." instance=ExtResource( 5 )]
+position = Vector2( 180, 297 )

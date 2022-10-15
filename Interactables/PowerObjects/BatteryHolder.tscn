@@ -9,13 +9,16 @@
 script = ExtResource( 2 )
 
 [node name="PowerArea" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2.2391, 2.2391 )
+providingPower = false
 
 [node name="AttachPoint" type="Node2D" parent="."]
+position = Vector2( 0, 22 )
 
 [node name="BatteryGrabArea" type="Area2D" parent="."]
+position = Vector2( 0, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatteryGrabArea"]
-position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="BatteryGrabArea" to="." method="_on_BatteryGrabArea_body_entered"]
