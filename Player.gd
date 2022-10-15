@@ -48,7 +48,6 @@ func leftShot():
 	bullet.global_position = $ShootPoint.global_position
 	bullet.look_at(bullet.global_position + bullet.direction)
 	bullet.direction = (get_global_mouse_position() - bullet.global_position).normalized()
-
 	var impulseDir = Vector2(bullet.direction.x, bullet.direction.y)
 	bullet.apply_central_impulse(impulseDir*bulletSpeed)
 	get_parent().add_child(bullet)
