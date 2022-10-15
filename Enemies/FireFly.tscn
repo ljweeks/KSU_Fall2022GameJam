@@ -83,6 +83,7 @@ shape = SubResource( 1 )
 material = ExtResource( 3 )
 frames = SubResource( 14 )
 animation = "FireFlyAnimation"
+frame = 11
 playing = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

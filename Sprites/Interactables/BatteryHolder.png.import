@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HorizConnector.png-e3c9c1c0a6c5e7ed51b6886fb4294333.stex"
+path="res://.import/BatteryHolder.png-a05de1375df270362b45dc3298af00af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pipes/HorizConnector.png"
-dest_files=[ "res://.import/HorizConnector.png-e3c9c1c0a6c5e7ed51b6886fb4294333.stex" ]
+source_file="res://Sprites/Interactables/BatteryHolder.png"
+dest_files=[ "res://.import/BatteryHolder.png-a05de1375df270362b45dc3298af00af.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

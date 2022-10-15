@@ -9,16 +9,20 @@ var target
 export (float) var speed = 100
 onready var nav = get_node("NavigationAgent2D")
 # Called when the node enters the scene tree for the first time.
+
+func find_new_target():
+	var targets = get_tree().get_nodes_in_group("EnemyTarget")
+	if(targets.size() > 0):
+		target = targets[rand_range(0, targets.size())]
+		nav.set_target_location(target.global_position)
+
 func _ready():
 	#collision_layer 
 	#collision_mask += 2
 	contact_monitor = true;
 	contacts_reported = 10000
 	connect("body_entered", self, "collide")
-	var targets = get_tree().get_nodes_in_group("EnemyTarget")
-	if(targets.size() > 0):
-		target = targets[rand_range(0, targets.size())]
-		nav.set_target_location(target.global_position)
+	find_new_target()
 		
 
 var distanceToAttackFrom = rand_range(100,200)
@@ -36,6 +40,9 @@ func _process(delta):
 	else:
 		var moveTarget = (moveTo - self.global_position).normalized()
 		self.apply_central_impulse(moveTarget*speed)
+	
+	if target == null or not target.is_in_group("EnemyTarget"):
+		find_new_target()
 	
 func collide(body):
 	if body is Fan:

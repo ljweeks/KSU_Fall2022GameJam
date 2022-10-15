@@ -15,6 +15,7 @@ func _ready():
 var thisHeat : float = 0
 export (float) var tickRate = 3
 var tick = 0
+
 func _process(delta):
 	tick += delta
 	if(tick > tickRate):
@@ -29,3 +30,7 @@ func freeze():
 	thisHeat -= 3
 	if(thisHeat < baseHeat):
 		thisHeat = baseHeat
+
+
+func _on_EnemyTarget_enemy_hit():
+	thisHeat += 3
