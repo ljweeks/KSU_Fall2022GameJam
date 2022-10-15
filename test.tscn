@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/basicWall.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Tiles/Pipe.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Interactables/PowerObjects/BatteryHolder.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Interactables/PowerObjects/Fan.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Enemies/FireFly.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Tiles/EnemySpawnNode.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -102,11 +101,6 @@ collision_mask = 3
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 1 )
-
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( -32, -208 )
-collision_layer = 3
-collision_mask = 3
 
 [node name="EnemySpawn" parent="." instance=ExtResource( 10 )]
 position = Vector2( -128, 120 )

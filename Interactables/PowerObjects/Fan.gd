@@ -8,7 +8,7 @@ onready var Game = get_node("/root/Game")
 # var a = 2
 # var b = "text"
 
-
+var powered
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -19,8 +19,9 @@ export (float) var coolPower = 5
 func _process(delta):
 	tick += delta
 	if powerableObject.powered:
+		powered = true
 		if tick > tickRate:
 			Game.overload -= coolPower
 			tick = 0
 	else:
-		pass
+		powered = false
