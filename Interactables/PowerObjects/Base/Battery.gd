@@ -17,12 +17,11 @@ var froze = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(froze and curColdTime<coldTime):
-		self.mass = 1000
-		
+		self.mode = RigidBody2D.MODE_STATIC
 		curColdTime += delta
 	else:
 		froze = false
-		self.mass = startMass
+		self.mode = RigidBody2D.MODE_RIGID
 		curColdTime = 0
 
 func freeze():
