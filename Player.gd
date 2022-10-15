@@ -70,5 +70,7 @@ func rightShot(delta):
 func _process(delta):
 	user_input()
 	shoot(delta)
+	
+func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
