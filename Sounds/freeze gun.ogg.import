@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/freeze gun.ogg-b7e51679f0183bf4412b869a21feb608.oggstr"
+
+[deps]
+
+source_file="res://Sounds/freeze gun.ogg"
+dest_files=[ "res://.import/freeze gun.ogg-b7e51679f0183bf4412b869a21feb608.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

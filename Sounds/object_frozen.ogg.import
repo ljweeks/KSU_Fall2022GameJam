@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/object_frozen.ogg-786c71843deb3207402148d130bf3c24.oggstr"
+
+[deps]
+
+source_file="res://Sounds/object_frozen.ogg"
+dest_files=[ "res://.import/object_frozen.ogg-786c71843deb3207402148d130bf3c24.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
