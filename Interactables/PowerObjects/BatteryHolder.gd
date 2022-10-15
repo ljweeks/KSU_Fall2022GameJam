@@ -44,8 +44,8 @@ func addBattery(newBattery):
 		newBattery.sleeping = true
 		$PowerArea.providingPower = true
 		
-		yield(get_tree().create_timer(1.0), "timeout")
-		removeBattery()
+		#yield(get_tree().create_timer(1.0), "timeout")
+		#removeBattery()
 
 
 func _on_BatteryGrabArea_body_entered(body):
