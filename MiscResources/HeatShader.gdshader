@@ -3,11 +3,12 @@ shader_type canvas_item;
 uniform float heat: hint_range(-1.0, 1.0) = 1;
 uniform vec4 heat_color: hint_color = vec4(1.0);
 uniform vec4 cold_color: hint_color = vec4(1.0);
+uniform float heat_multiplier = 1.0;
 
 void fragment()
 {
-	float speed = clamp(heat, 0.0, 1.0);
-	float amount = clamp(heat, 0.0, 1.0)/200.0;
+	float speed = clamp(heat, 0.0, 1.0) * 30.0;
+	float amount = clamp(heat, 0.0, 1.0)/6000.0 * heat_multiplier;
 	float flash_modifier = abs(heat) * (sin(TIME * 5.0)/4.0 + 0.5);
 	
 	float x = sin((TIME + UV.y) * speed);

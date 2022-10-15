@@ -3,7 +3,9 @@
 [ext_resource path="res://MiscResources/HeatShader.gdshader" type="Shader" id=1]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource( 1 )
 shader_param/heat = 1.0
 shader_param/heat_color = Color( 0.839216, 0.52549, 0.0784314, 1 )
 shader_param/cold_color = Color( 0.184314, 0.678431, 0.917647, 1 )
+shader_param/heat_multiplier = 10.0

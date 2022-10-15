@@ -4,6 +4,10 @@ extends KinematicBody2D
 #can change player speed
 export (int) var speed = 500
 
+onready var animTree = $AnimationTree
+onready var animationState = animTree.get("parameters/playback")
+
+var walking = false
 
 
 #player velocity
@@ -13,7 +17,7 @@ var attackSpeed = 0.2
 var shootTime = 0.00
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	animTree.active = true
 
 #gets user input and changes the velocity
 func user_input():
@@ -27,6 +31,18 @@ func user_input():
 	if Input.is_action_pressed("player_up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed	
+	
+	if velocity.length() > 0 and not walking:
+		walking = true
+		animationState.travel("Walk")
+	elif velocity.length() <= 0 and walking:
+		walking = false
+		animationState.travel("Idle")
+	
+	if walking:
+		print(velocity.normalized())
+		animTree.set("parameters/Idle/blend_position", velocity.normalized())
+		animTree.set("parameters/Walk/blend_position", velocity.normalized())
 	
 func shoot(delta):
 	if Input.is_action_just_pressed("shoot_left"):
