@@ -8,3 +8,4 @@ func on_plug(new_value):
 		set_mode(RigidBody2D.MODE_STATIC)
 	else:
 		set_mode(RigidBody2D.MODE_RIGID)
+	plugged = new_value

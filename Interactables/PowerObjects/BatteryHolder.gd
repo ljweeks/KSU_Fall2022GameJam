@@ -2,13 +2,16 @@ extends Node2D
 class_name BatteryHolder
 
 
+export var power_area_collision_scale = 1
 onready var powerArea = $PowerArea
+onready var base_radius = $PowerArea/CollisionShape2D.shape.radius
 
 var myBattery
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AttachPoint/BatterySprite.visible = false
+	$PowerArea/CollisionShape2D.shape.radius = base_radius * power_area_collision_scale
 		
 func removeBattery():
 	if myBattery is Battery:

@@ -17,6 +17,7 @@ func release_plug():
 
 func _on_Area2D_body_entered(body):
 	if body is PlugEnd and current_plug == null:
-		body.global_position = global_position
 		body.plugged = true
+		body.sleeping = true
+		body.global_position = global_position
 		current_plug = body
