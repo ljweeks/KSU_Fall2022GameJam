@@ -28,6 +28,7 @@ script = ExtResource( 9 )
 navpoly = SubResource( 1 )
 
 [node name="Node2D" parent="YSort" instance=ExtResource( 1 )]
+z_index = 2
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Node2D"]
 current = true
