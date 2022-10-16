@@ -73,7 +73,7 @@ animations = [ {
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
-mass = 50.0
+mass = 30.0
 gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource( 2 )

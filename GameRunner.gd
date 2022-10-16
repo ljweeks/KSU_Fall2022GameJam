@@ -16,7 +16,7 @@ func _ready():
 # how often things happen
 var tickRate = 0.5
 var enemySpawnRate = 5.4
-var batterySpawnRate = 10
+var batterySpawnRate = 5
 
 var enemySpawnRateTick = 0
 var tick = 0
@@ -54,12 +54,20 @@ func _process(delta):
 		spawnBattery()
 		batterySpawnTick = 0
 		
-export (int) var totalBattery = 5
+export (int) var totalBattery = 8
+
 func spawnBattery():
+
+	
 	if get_tree().get_nodes_in_group("battery").size() < totalBattery:
-		var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
-		get_parent().add_child(battery)
-		battery.global_position = batterySpawnPoints[rand_range(0, batterySpawnPoints.size())].global_position
+		var allBats = []
+		for bat in batterySpawnPoints:
+			if not bat.bat:
+				allBats.append(bat)
+		if allBats.size() > 0:
+			var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
+			get_parent().add_child(battery)
+			battery.global_position = allBats[rand_range(0, allBats.size())].global_position
 
 func spawnEnemy():
 	var enemy = load("res://Enemies/FireFly.tscn").instance()
