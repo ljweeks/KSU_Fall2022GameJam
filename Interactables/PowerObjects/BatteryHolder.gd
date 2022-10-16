@@ -1,7 +1,7 @@
 extends Node2D
 class_name BatteryHolder
 
-
+onready var Game = get_node("/root/Game")
 export var power_area_collision_scale = 1
 onready var powerArea = $PowerArea
 onready var base_radius = $PowerArea/CollisionShape2D.shape.radius
@@ -62,4 +62,6 @@ func _on_EnemyTarget_enemy_hit(item):
 	if (myBattery):
 		var lastBattery = myBattery
 		removeBattery()
+		Game.addShake(12)
+		$Explosion.emitting = true
 		lastBattery.queue_free()

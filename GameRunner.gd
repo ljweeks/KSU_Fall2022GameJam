@@ -53,8 +53,14 @@ func _process(delta):
 	if(batterySpawnTick > batterySpawnRate):
 		spawnBattery()
 		batterySpawnTick = 0
-		
+	if(overload > 70):
+		$YSort/Player/Camera2D.addShake(0.04)
+	if(overload > 95):
+		$YSort/Player/Camera2D.addShake(0.02)
 	timeChanges()
+
+func addShake(amount):
+	$YSort/Player/Camera2D.addShake(amount)
 
 func timeChanges():
 	if totalTime > 240:

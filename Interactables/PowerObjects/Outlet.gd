@@ -4,7 +4,7 @@ var current_plug = null
 var collision_disable_timer = 0
 export var power_area_collision_scale = 1
 onready var base_radius = $PowerArea/CollisionShape2D.shape.radius
-
+onready var Game = get_node("/root/Game")
 func _ready():
 	$PowerArea/CollisionShape2D.shape.radius = base_radius * power_area_collision_scale
 
@@ -62,3 +62,4 @@ func _physics_process(delta):
 
 func _on_EnemyTarget_enemy_hit(direction):
 	release_plug(direction)
+	Game.addShake(12)
