@@ -50,7 +50,7 @@ func _process(delta):
 		yield(get_tree(), "idle_frame")
 		Scores.lastScore = totalTime
 		yield(get_tree(), "idle_frame")
-		get_tree().change_scene("res://LostScreen.tscn")
+		get_tree().change_scene("res://OtherScenes/TitleScreen.tscn")
 		
 
 	if(enemySpawnRateTick > enemySpawnRate and totalTime > 20):

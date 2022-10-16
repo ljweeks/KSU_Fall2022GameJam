@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MiscResources/hacker_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://MiscResources/new_styleboxflat.tres" type="StyleBox" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://OtherScenes/TitleScreen.gd" type="Script" id=6]
 [ext_resource path="res://Sounds/gamejam song title loop.ogg" type="AudioStream" id=7]
 [ext_resource path="res://OtherScenes/play.gd" type="Script" id=8]
+[ext_resource path="res://HighScore.gd" type="Script" id=9]
 
 [node name="title" type="CanvasLayer"]
 script = ExtResource( 6 )
@@ -69,20 +70,18 @@ text = "MORTON
 ANTIVIRUS "
 valign = 1
 
-[node name="Label3" type="Label" parent="Control"]
-visible = false
+[node name="ActualHighScore" type="Label" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 275.0
-margin_top = -88.0
-margin_right = 240.0
-margin_bottom = -88.0
+margin_left = 41.0
+margin_top = -618.0
+margin_right = 10.0
+margin_bottom = -117.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
-text = "MORTON
-ANTIVIRUS "
 valign = 1
+script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="Control"]
 margin_left = 79.0
@@ -93,6 +92,17 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "MORTON
 ANTIVIRUS "
+valign = 1
+
+[node name="HighScore2" type="Label" parent="Control"]
+margin_left = 42.0
+margin_top = -248.0
+margin_right = 424.0
+margin_bottom = 442.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "High score"
 valign = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
