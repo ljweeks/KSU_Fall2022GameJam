@@ -12,7 +12,12 @@ func _ready():
 	$DeathPlayer.play()
 	if thunk:
 		$DeathPlayer2.play()
+	$AnimatedSprite.playing = true
 
 
 func _on_DeathPlayer_finished():
+	queue_free()
+
+
+func _on_AnimatedSprite_animation_finished():
 	queue_free()

@@ -1,15 +1,53 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sounds/enemy_death.ogg" type="AudioStream" id=1]
 [ext_resource path="res://FireFlyDeath.gd" type="Script" id=2]
 [ext_resource path="res://Sounds/thunk.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/bugdeath-Sheet.png" type="Texture" id=4]
+[ext_resource path="res://MiscResources/heat_material.tres" type="Material" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 2, 0, 32, 36 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 42, 0, 32, 36 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 82, 0, 32, 36 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 122, 0, 32, 36 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 162, 0, 32, 36 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 202, 0, 32, 36 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 242, 0, 32, 36 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="FireFlyDeath" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="DeathPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
-volume_db = 10.124
+volume_db = 14.726
 max_distance = 500.0
 
 [node name="DeathPlayer2" type="AudioStreamPlayer2D" parent="."]
@@ -18,5 +56,9 @@ max_distance = 500.0
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[connection signal="finished" from="DeathPlayer" to="." method="_on_DeathPlayer_finished"]
-[connection signal="finished" from="DeathPlayer2" to="." method="_on_DeathPlayer_finished"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = ExtResource( 5 )
+frames = SubResource( 8 )
+speed_scale = 2.0
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
