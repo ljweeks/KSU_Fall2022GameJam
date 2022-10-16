@@ -297,6 +297,8 @@ outlines = [ PoolVector2Array( 592, -600, 584, 384, -80, 376, -104, 376, -104, 3
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
+totalBattery = null
+cap = null
 
 [node name="YSort" type="YSort" parent="."]
 
