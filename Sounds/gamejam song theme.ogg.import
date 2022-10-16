@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gamejam song theme.ogg-b477487052b99b50bcccccc31f66cb10.oggstr"
+
+[deps]
+
+source_file="res://Sounds/gamejam song theme.ogg"
+dest_files=[ "res://.import/gamejam song theme.ogg-b477487052b99b50bcccccc31f66cb10.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

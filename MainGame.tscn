@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://GameRunner.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Sprites/environments/wires/UpLeftCont.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/environments/wires/U_Wire_FInish.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/environments/wires/D_Wire_FInish.png" type="Texture" id=30]
+[ext_resource path="res://Sounds/gamejam song theme.ogg" type="AudioStream" id=31]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Camera2D
@@ -461,3 +462,8 @@ anchor_bottom = 1.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 rect_pivot_offset = Vector2( 0, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = -11.361
+autoplay = true
