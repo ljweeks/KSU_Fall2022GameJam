@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://MiscResources/hacker_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://MiscResources/new_styleboxflat.tres" type="StyleBox" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Sounds/gamejam song title loop.ogg" type="AudioStream" id=7]
 [ext_resource path="res://OtherScenes/play.gd" type="Script" id=8]
 [ext_resource path="res://HighScore.gd" type="Script" id=9]
+[ext_resource path="res://OtherScenes/vinefunny.gd" type="Script" id=10]
+[ext_resource path="res://Sounds/Y2Mate.is_-_Dramatic_VineInstagram_Boom_-_Sound_Effect_HD-TApmI8YtYhc-128k-1654151270125.mp3" type="AudioStream" id=11]
+[ext_resource path="res://OtherScenes/TextureRect2.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/ethan_antivirus.png" type="Texture" id=13]
 
 [node name="title" type="CanvasLayer"]
 script = ExtResource( 6 )
@@ -23,6 +27,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+expand = true
+script = ExtResource( 12 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 anchor_left = 1.0
@@ -116,5 +128,24 @@ script = ExtResource( 9 )
 stream = ExtResource( 7 )
 autoplay = true
 
+[node name="Button" type="Button" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -450.0
+margin_top = -65.0
+margin_right = -310.0
+margin_bottom = 15.0
+script = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/Button"]
+stream = ExtResource( 11 )
+
 [connection signal="pressed" from="Control/VBoxContainer/play" to="Control/VBoxContainer/play" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/install" to="Control/VBoxContainer/install" method="_on_Button_pressed"]
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button" to="Control/TextureRect2" method="_on_Button_button_down"]
+[connection signal="button_up" from="Control/Button" to="Control/TextureRect2" method="_on_Button_button_up"]
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]

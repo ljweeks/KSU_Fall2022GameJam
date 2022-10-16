@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Y2Mate.is_-_Dramatic_VineInstagram_Boom_-_Sound_Effect_HD-TApmI8YtYhc-128k-1654151270125.mp3-39d8e25b699461b58588698a941ae8c6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Y2Mate.is_-_Dramatic_VineInstagram_Boom_-_Sound_Effect_HD-TApmI8YtYhc-128k-1654151270125.mp3"
+dest_files=[ "res://.import/Y2Mate.is_-_Dramatic_VineInstagram_Boom_-_Sound_Effect_HD-TApmI8YtYhc-128k-1654151270125.mp3-39d8e25b699461b58588698a941ae8c6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
