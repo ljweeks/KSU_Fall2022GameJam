@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://white.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/traingle.png" type="Texture" id=1]
 [ext_resource path="res://UI/CompassPiece.gd" type="Script" id=2]
 
 [node name="CompassRoot" type="Node2D"]
@@ -10,5 +10,6 @@ script = ExtResource( 2 )
 
 [node name="CompassPiece" type="Sprite" parent="Node2D"]
 position = Vector2( 209, 0 )
+rotation = 1.57079
 scale = Vector2( 0.844921, 0.291088 )
 texture = ExtResource( 1 )

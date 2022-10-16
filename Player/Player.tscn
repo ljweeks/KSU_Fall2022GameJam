@@ -600,7 +600,7 @@ shape = SubResource( 77 )
 
 [node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -13.984
+volume_db = -5.244
 pitch_scale = 1.5
 
 [node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
