@@ -13,18 +13,68 @@
 [node name="title" type="CanvasLayer"]
 script = ExtResource( 6 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Container" type="Container" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -410, -74 )
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="Container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 expand = true
 
-[node name="play" type="Button" parent="Control"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container"]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="HighScore2" type="Label" parent="Container"]
+margin_left = 42.0
+margin_top = -248.0
+margin_right = 442.0
+margin_bottom = 442.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "High score"
+valign = 1
+
+[node name="Label" type="Label" parent="Container"]
+margin_left = 79.0
+margin_right = 465.0
+margin_bottom = 431.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "MORTON
+ANTIVIRUS "
+valign = 1
+
+[node name="ActualHighScore" type="Label" parent="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 41.0
+margin_top = -618.0
+margin_right = 10.0
+margin_bottom = -117.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+valign = 1
+script = ExtResource( 9 )
+
+[node name="Label2" type="Label" parent="Container"]
+margin_left = 76.0
+margin_right = 462.0
+margin_bottom = 442.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "MORTON
+ANTIVIRUS "
+valign = 1
+
+[node name="play" type="Button" parent="Container"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -32,6 +82,7 @@ anchor_bottom = 0.5
 margin_left = -322.0
 margin_top = -50.0
 margin_right = -134.0
+margin_bottom = 23.0
 rect_scale = Vector2( 1.5, 1.5 )
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -41,7 +92,7 @@ custom_styles/normal = ExtResource( 2 )
 text = "PLAY"
 script = ExtResource( 8 )
 
-[node name="install" type="Button" parent="Control"]
+[node name="install" type="Button" parent="Container"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -59,55 +110,5 @@ custom_styles/normal = ExtResource( 2 )
 text = "INSTALL GUIDE"
 script = ExtResource( 4 )
 
-[node name="Label2" type="Label" parent="Control"]
-margin_left = 76.0
-margin_bottom = 442.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "MORTON
-ANTIVIRUS "
-valign = 1
-
-[node name="ActualHighScore" type="Label" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 41.0
-margin_top = -618.0
-margin_right = 10.0
-margin_bottom = -117.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-valign = 1
-script = ExtResource( 9 )
-
-[node name="Label" type="Label" parent="Control"]
-margin_left = 79.0
-margin_right = 422.0
-margin_bottom = 431.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "MORTON
-ANTIVIRUS "
-valign = 1
-
-[node name="HighScore2" type="Label" parent="Control"]
-margin_left = 42.0
-margin_top = -248.0
-margin_right = 424.0
-margin_bottom = 442.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "High score"
-valign = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource( 7 )
-autoplay = true
-
-[connection signal="pressed" from="Control/play" to="Control/play" method="_on_Button_pressed"]
-[connection signal="pressed" from="Control/install" to="Control/install" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container/play" to="Container/play" method="_on_Button_pressed"]
+[connection signal="pressed" from="Container/install" to="Container/install" method="_on_Button_pressed"]
