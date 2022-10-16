@@ -10,6 +10,9 @@ onready var Game = get_node("/root/Game")
 var walking = false
 var sicko = false
 
+onready var vortex = $Vortex
+onready var dist_of_vortex = vortex.position.x
+
 #player velocity
 var velocity = Vector2()
 #time between shots
@@ -59,7 +62,9 @@ func shoot(delta):
 			rightShot(delta)
 		else:
 			shootTime -= delta
+		$Vortex/CollisionShape2D.disabled = false
 	else:
+		$Vortex/CollisionShape2D.disabled = true
 		$FreezeShootPlayer.stop()
 		
 		
@@ -110,4 +115,14 @@ func sicko(input):
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
+	update_vortex(delta)
 
+func update_vortex(delta):
+	var direction = (get_global_mouse_position() - global_position).normalized()
+	vortex.position = direction * dist_of_vortex
+	for body in vortex.get_overlapping_bodies():
+		if body is RigidBody2D:
+			var diff = global_position - (body.global_position + body.linear_velocity)
+			var dir = diff.normalized()
+			var mag = diff.length()
+			body.apply_central_impulse(diff*5 * 100 * delta)
