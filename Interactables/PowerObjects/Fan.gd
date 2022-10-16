@@ -13,7 +13,7 @@ var powered
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fanDir()
-export (float) var tickRate = 1
+export (float) var tickRate = 0.25
 var tick = 0
 
 func fanDir():
@@ -26,7 +26,7 @@ func fanDir():
 	if(fanDirection == direction.blow_right):
 			$AnimatedSprite.play("blow_right", false)
 
-export (float) var coolPower = 5
+export (float) var coolPower = 0.75
 func _process(delta):
 	tick += delta
 	if powerableObject.powered:

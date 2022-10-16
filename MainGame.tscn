@@ -325,11 +325,31 @@ navpoly = SubResource( 1 )
 
 [node name="EnemySpawnPoints" type="Node2D" parent="YSort"]
 
-[node name="BatterySpawnNode" parent="YSort/EnemySpawnPoints" instance=ExtResource( 6 )]
+[node name="EnemySpawn" parent="YSort/EnemySpawnPoints" instance=ExtResource( 5 )]
+position = Vector2( -400, 216 )
+
+[node name="EnemySpawn2" parent="YSort/EnemySpawnPoints" instance=ExtResource( 5 )]
+position = Vector2( 272, -496 )
+
+[node name="EnemySpawn3" parent="YSort/EnemySpawnPoints" instance=ExtResource( 5 )]
+position = Vector2( -664, -176 )
+
+[node name="EnemySpawn4" parent="YSort/EnemySpawnPoints" instance=ExtResource( 5 )]
+position = Vector2( 48, -320 )
+
+[node name="EnemySpawn5" parent="YSort/EnemySpawnPoints" instance=ExtResource( 5 )]
+position = Vector2( 480, -40 )
 
 [node name="BatterySpawnPoints" type="Node2D" parent="YSort"]
 
-[node name="EnemySpawn" parent="YSort/BatterySpawnPoints" instance=ExtResource( 5 )]
+[node name="BatterySpawnNode" parent="YSort/BatterySpawnPoints" instance=ExtResource( 6 )]
+position = Vector2( -616, -80 )
+
+[node name="BatterySpawnNode2" parent="YSort/BatterySpawnPoints" instance=ExtResource( 6 )]
+position = Vector2( 488, -408 )
+
+[node name="BatterySpawnNode3" parent="YSort/BatterySpawnPoints" instance=ExtResource( 6 )]
+position = Vector2( -24, 328 )
 
 [node name="Pipes" parent="YSort" instance=ExtResource( 3 )]
 collision_layer = 3

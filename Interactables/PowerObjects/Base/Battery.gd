@@ -25,4 +25,5 @@ func _process(delta):
 		curColdTime = 0
 
 func freeze():
-	froze = true
+	pass
+	#froze = true
