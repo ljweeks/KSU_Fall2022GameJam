@@ -6,7 +6,7 @@ extends RigidBody2D
 # var b = "text"
 var health = 8
 var target
-export (float) var speed = 50
+export (float) var speed = 30
 onready var nav = get_node("NavigationAgent2D")
 onready var death = preload("res://Enemies/FireFlyDeath.tscn")
 # Called when the node enters the scene tree for the first time.
