@@ -31,6 +31,7 @@ func _process(delta):
 	tick += delta
 	if powerableObject.powered:
 		powered = true
+		$AudioStreamPlayer2D.play()
 		$AnimatedSprite.material.set_shader_param("heat", -1)
 		if tick > tickRate:
 			Game.overload -= coolPower
@@ -38,5 +39,6 @@ func _process(delta):
 			tick = 0
 	else:
 		powered = false
+		$AudioStreamPlayer2D.stop()
 		$AnimatedSprite.material.set_shader_param("heat", 0)
 		$AnimatedSprite.stop()
