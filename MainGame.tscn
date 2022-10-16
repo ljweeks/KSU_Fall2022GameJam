@@ -329,15 +329,6 @@ zoom = Vector2( 0.7, 0.7 )
 limit_left = -10000
 script = SubResource( 3 )
 
-[node name="TempMeter" parent="YSort/Player/Camera2D" instance=ExtResource( 4 )]
-anchor_left = 1.0
-anchor_bottom = 0.0
-margin_left = -463.0
-margin_top = -256.0
-margin_right = -463.0
-margin_bottom = -256.0
-rect_pivot_offset = Vector2( 0, 0 )
-
 [node name="offest" type="Node2D" parent="YSort/Player/Camera2D"]
 position = Vector2( -650, -650 )
 
@@ -459,3 +450,14 @@ position = Vector2( -608, -480 )
 [node name="Plug2" parent="YSort/Outlet" instance=ExtResource( 9 )]
 position = Vector2( -728, -528 )
 rotation = 0.314159
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TempMeter" parent="CanvasLayer/Control" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
