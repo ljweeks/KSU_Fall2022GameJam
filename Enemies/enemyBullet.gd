@@ -7,7 +7,7 @@ extends RigidBody2D
 # var b = "text"
 var speed = 300
 var direction = Vector2(1, 0)
-export (int) var damage = 3
+export (int) var damage = 0.5
 
 
 # Called when the node enters the scene tree for the first time.

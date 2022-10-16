@@ -4,7 +4,7 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var health = 10
+var health = 8
 var target
 export (float) var speed = 200
 onready var nav = get_node("NavigationAgent2D")
@@ -64,10 +64,10 @@ func attack():
 	var bullet = load("res://Enemies/enemyBullet.tscn").instance()
 	get_parent().add_child(bullet)
 	bullet.direction = (target.global_position - self.global_position).normalized()
-	bullet.global_position = self.global_position + bullet.direction*100
+	bullet.global_position = self.global_position + bullet.direction*50
 	bullet.look_at(bullet.global_position + bullet.direction)
 	bullet.apply_central_impulse(bullet.direction*bulletSpeed)
-	self.apply_central_impulse(bullet.direction*-5000)
+	self.apply_central_impulse(bullet.direction*-3000)
 
 
 func damaged(amount):

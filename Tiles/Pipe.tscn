@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tiles/Pipe.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Pipes/HortizPipeCore.png" type="Texture" id=2]
 [ext_resource path="res://Interactables/PowerObjects/Base/EnemyTarget.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MiscResources/heat_material.tres" type="Material" id=4]
+[ext_resource path="res://Sprites/smoke_08.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.192661, 0.59633, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [node name="Pipe" type="StaticBody2D"]
 script = ExtResource( 1 )
@@ -20,5 +25,20 @@ scale = Vector2( 2.64, 2.64 )
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )
 texture = ExtResource( 2 )
+
+[node name="particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 5.0
+texture = ExtResource( 5 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+initial_velocity_random = 0.39
+angular_velocity = 1.0
+angular_velocity_random = 1.0
+scale_amount = 0.1
+color = Color( 1, 1, 1, 0.647059 )
+color_ramp = SubResource( 2 )
 
 [connection signal="enemy_hit" from="EnemyTarget" to="." method="_on_EnemyTarget_enemy_hit"]

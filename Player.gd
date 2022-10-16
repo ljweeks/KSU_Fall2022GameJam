@@ -16,7 +16,7 @@ onready var dist_of_vortex = vortex.position.x
 #player velocity
 var velocity = Vector2()
 #time between shots
-var attackSpeed = 0.2
+var attackSpeed = 0.1
 var shootTime = 0.00
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -77,12 +77,13 @@ var bulletSpeed = 1000
 
 func leftShot():
 	var bullet = load("res://Player/bullet.tscn").instance()
+	get_parent().add_child(bullet)
 	bullet.global_position = $ShootPoint.global_position
 	bullet.look_at(bullet.global_position + bullet.direction)
 	bullet.direction = (get_global_mouse_position() - bullet.global_position).normalized()
 	var impulseDir = Vector2(bullet.direction.x, bullet.direction.y)
 	bullet.apply_central_impulse(impulseDir*bulletSpeed)
-	get_parent().add_child(bullet)
+
 
 
 
@@ -109,11 +110,11 @@ func _process(delta):
 
 func sicko(input):
 	if(input):
-		attackSpeed = 0.05
+		attackSpeed = 0.03
 		speed = 600
 		bulletSpeed = 2000
 	else:
-		attackSpeed = 0.2
+		attackSpeed = 0.1
 		speed = 500
 		bulletSpeed = 1000
 
