@@ -15,7 +15,7 @@ func _ready():
 
 # how often things happen
 var tickRate = 0.5
-var enemySpawnRate = 5
+var enemySpawnRate = 5.4
 var batterySpawnRate = 10
 
 var enemySpawnRateTick = 0
@@ -30,14 +30,18 @@ func _process(delta):
 	
 	if(tick > tickRate):
 		overload += tempPerTick
+		if(overload > 60):
+			enemySpawnRate += 0.1
 		if(overload > maxTemp):
 			overload = maxTemp
 		elif(overload < 0):
 			overload = 0
 		tick = 0
 		enemySpawnRate -= 0.005
-		if(enemySpawnRate < 3):
-			enemySpawnRate = 3
+		if(enemySpawnRate < 3.5):
+			enemySpawnRate = 4
+		if(enemySpawnRate > 6):
+			enemySpawnRate = 5.5
 	if(overload > 145):
 		print("DEAD")
 

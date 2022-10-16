@@ -26,7 +26,7 @@ func fanDir():
 	if(fanDirection == direction.blow_right):
 			$AnimatedSprite.play("blow_right", false)
 
-export (float) var coolPower = 0.75
+export (float) var coolPower = 0.5
 func _process(delta):
 	tick += delta
 	if powerableObject.powered:
