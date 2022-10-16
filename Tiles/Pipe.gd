@@ -43,3 +43,4 @@ func freeze():
 
 func _on_EnemyTarget_enemy_hit(item):
 	thisHeat += 0.75
+	Game.addShake(8)
