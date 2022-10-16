@@ -4,4 +4,4 @@ extends Button
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://test.tscn")
+	get_tree().change_scene("res://MainGame.tscn")
