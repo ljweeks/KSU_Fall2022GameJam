@@ -25,7 +25,7 @@ func _process(delta):
 		thisHeat += heatIncreaseAmountPerTick
 		if(thisHeat > maxHeat):
 			thisHeat = maxHeat
-		$Sprite.modulate = Color((thisHeat/5), 0, (-thisHeat/5))
+		#$Sprite.modulate = Color((thisHeat/5), 0, (-thisHeat/5))
 
 func freeze():
 	thisHeat -= 3
@@ -33,5 +33,5 @@ func freeze():
 		thisHeat = baseHeat
 
 
-func _on_EnemyTarget_enemy_hit():
+func _on_EnemyTarget_enemy_hit(item):
 	thisHeat += 2
