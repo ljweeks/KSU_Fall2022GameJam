@@ -29,6 +29,8 @@ func removeBattery():
 		
 		yield(get_tree().create_timer(1), "timeout")
 		$BatteryGrabArea/CollisionShape2D.disabled = false
+		
+		add_to_group("CompassTargets")
 
 func addBattery(newBattery):
 	if myBattery != null:
@@ -48,6 +50,7 @@ func addBattery(newBattery):
 		
 		#yield(get_tree().create_timer(1.0), "timeout")
 		#removeBattery()
+		remove_from_group("CompassTargets")
 
 
 func _on_BatteryGrabArea_body_entered(body):

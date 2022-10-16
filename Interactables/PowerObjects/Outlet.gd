@@ -26,6 +26,8 @@ func release_plug(direction):
 		$EnemyTarget.target_active = false
 		$PlugSprite.visible = true
 		$PluggedSprite.visible = false
+		
+		add_to_group("CompassTargets")
 
 func add_plug(body):
 	body.global_position = global_position
@@ -42,6 +44,9 @@ func add_plug(body):
 	$EnemyTarget.target_active = true
 	$PlugSprite.visible = false
 	$PluggedSprite.visible = true
+	
+	
+	remove_from_group("CompassTargets")
 
 func _on_Area2D_body_entered(body):
 	if body is PlugEnd and current_plug == null:

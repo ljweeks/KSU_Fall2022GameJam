@@ -26,9 +26,10 @@ func _process(delta):
 		if(thisHeat > maxHeat):
 			thisHeat = maxHeat
 		if(thisHeat > 0):
-			
+			add_to_group("CompassTargets")
 			$particles.emitting = true
 		if(thisHeat < 0):
+			remove_from_group("CompassTargets")
 			$particles.emitting = false
 		#$Sprite.modulate = Color((thisHeat/5), 0, (-thisHeat/5))
 	

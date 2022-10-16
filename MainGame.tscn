@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://GameRunner.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Sprites/environments/wires/U_Wire_FInish.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/environments/wires/D_Wire_FInish.png" type="Texture" id=30]
 [ext_resource path="res://Sounds/gamejam song theme.ogg" type="AudioStream" id=31]
+[ext_resource path="res://UI/CompassWidget.tscn" type="PackedScene" id=32]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends Camera2D
@@ -457,6 +458,8 @@ rotation = 0.314159
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="CompassWidget" parent="CanvasLayer/Control" instance=ExtResource( 32 )]
 
 [node name="TempMeter" parent="CanvasLayer/Control" instance=ExtResource( 4 )]
 anchor_right = 0.0
