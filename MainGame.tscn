@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://GameRunner.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -32,42 +32,6 @@
 [ext_resource path="res://Sprites/environments/wires/D_Wire_FInish.png" type="Texture" id=30]
 [ext_resource path="res://Sounds/gamejam song theme.ogg" type="AudioStream" id=31]
 [ext_resource path="res://Timer.gd" type="Script" id=32]
-
-[sub_resource type="GDScript" id=3]
-script/source = "extends Camera2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-
-
-
-var shake = 0;
-var shakeAmount = 0;
-
-
- 
-func _physics_process(delta):
-	if(shakeAmount > 0.2):
-		shake()
-
-func shake():
-	self.set_offset(Vector2(rand_range(-1.0, 1.0) * shakeAmount, rand_range(-1.0, 1.0) * shakeAmount))
-	shakeAmount *= 0.85
- 
-func addShake(amount):
-	shakeAmount += amount
-
-
-"
 
 [sub_resource type="TileSet" id=2]
 0/name = "DiagFinish1.png 0"
@@ -346,7 +310,6 @@ z_index = 3
 current = true
 zoom = Vector2( 0.7, 0.7 )
 limit_left = -10000
-script = SubResource( 3 )
 
 [node name="offest" type="Node2D" parent="YSort/Player/Camera2D"]
 position = Vector2( -650, -650 )
