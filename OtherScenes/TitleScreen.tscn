@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://MiscResources/hacker_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://MiscResources/new_styleboxflat.tres" type="StyleBox" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/title.png" type="Texture" id=5]
 [ext_resource path="res://OtherScenes/TitleScreen.gd" type="Script" id=6]
 [ext_resource path="res://Sounds/gamejam song title loop.ogg" type="AudioStream" id=7]
+[ext_resource path="res://OtherScenes/play.gd" type="Script" id=8]
 
 [node name="title" type="CanvasLayer"]
 script = ExtResource( 6 )
@@ -22,7 +23,7 @@ anchor_bottom = 1.0
 texture = ExtResource( 5 )
 expand = true
 
-[node name="Button" type="Button" parent="Control"]
+[node name="play" type="Button" parent="Control"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -37,9 +38,9 @@ custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 text = "PLAY"
-script = ExtResource( 4 )
+script = ExtResource( 8 )
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="install" type="Button" parent="Control"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -98,5 +99,5 @@ valign = 1
 stream = ExtResource( 7 )
 autoplay = true
 
-[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]
-[connection signal="pressed" from="Control/Button2" to="Control/Button2" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/play" to="Control/play" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/install" to="Control/install" method="_on_Button_pressed"]
