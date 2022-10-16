@@ -37,7 +37,7 @@ func _process(delta):
 		elif(overload < 0):
 			overload = 0
 		tick = 0
-		enemySpawnRate -= 0.0075
+		enemySpawnRate -= 0.005
 		if(enemySpawnRate < 3.5):
 			enemySpawnRate = 4
 		if(enemySpawnRate > 6):

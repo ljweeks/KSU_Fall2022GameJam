@@ -6,7 +6,7 @@ extends StaticBody2D
 # var b = "text"
 onready var Game = get_node("/root/Game")
 export (float) var baseHeat = -2
-export (float) var maxHeat = 5
+export (float) var maxHeat = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
