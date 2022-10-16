@@ -26,6 +26,9 @@ func _process(delta):
 		if(thisHeat > maxHeat):
 			thisHeat = maxHeat
 		#$Sprite.modulate = Color((thisHeat/5), 0, (-thisHeat/5))
+	
+	var heatPer = (thisHeat - baseHeat)/(maxHeat - baseHeat)
+	$Sprite.material.set_shader_param("heat", clamp(heatPer * 2 - 1, -1, 1))
 
 func freeze():
 	thisHeat -= 3
