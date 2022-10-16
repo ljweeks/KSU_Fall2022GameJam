@@ -63,8 +63,12 @@ func shoot(delta):
 		else:
 			shootTime -= delta
 		$Vortex/CollisionShape2D.disabled = false
+		$Vortex/Particles2D2.emitting = true
+		$Vortex/Particles2D3.emitting = true
 	else:
 		$Vortex/CollisionShape2D.disabled = true
+		$Vortex/Particles2D2.emitting = false
+		$Vortex/Particles2D3.emitting = false
 		$FreezeShootPlayer.stop()
 		
 		
@@ -120,6 +124,7 @@ func _physics_process(delta):
 func update_vortex(delta):
 	var direction = (get_global_mouse_position() - global_position).normalized()
 	vortex.position = direction * dist_of_vortex
+	vortex.look_at(vortex.global_position + direction)
 	for body in vortex.get_overlapping_bodies():
 		if body is RigidBody2D:
 			var diff = global_position - (body.global_position + body.linear_velocity)
