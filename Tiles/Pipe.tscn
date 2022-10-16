@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tiles/Pipe.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Pipes/HortizPipeCore.png" type="Texture" id=2]
 [ext_resource path="res://Interactables/PowerObjects/Base/EnemyTarget.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MiscResources/heat_material.tres" type="Material" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -17,6 +18,7 @@ shape = SubResource( 1 )
 scale = Vector2( 2.64, 2.64 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 4 )
 texture = ExtResource( 2 )
 
 [connection signal="enemy_hit" from="EnemyTarget" to="." method="_on_EnemyTarget_enemy_hit"]

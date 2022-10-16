@@ -14,14 +14,14 @@ func _ready():
 	# OS.window_fullscreen = true
 
 # how often things happen
-var tickRate = 1
+var tickRate = 0.5
 var enemySpawnRate = 5
 var batterySpawnRate = 10
 
 var enemySpawnRateTick = 0
 var tick = 0
 var batterySpawnTick = 0
-
+var tempPerTick = 1
 func _process(delta):
 	
 	tick += delta
@@ -29,12 +29,17 @@ func _process(delta):
 	batterySpawnTick += delta
 	
 	if(tick > tickRate):
-		overload += 1
+		overload += tempPerTick
 		if(overload > maxTemp):
 			overload = maxTemp
 		elif(overload < 0):
 			overload = 0
 		tick = 0
+		enemySpawnRate -= 0.005
+		if(enemySpawnRate < 3):
+			enemySpawnRate = 3
+	if(overload > 145):
+		print("DEAD")
 
 	if(enemySpawnRateTick > enemySpawnRate):
 		spawnEnemy()

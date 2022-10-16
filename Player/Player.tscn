@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/footstep.ogg" type="AudioStream" id=2]
@@ -523,6 +523,45 @@ tracks/1/keys = {
 radius = 19.0
 height = 1.99997
 
+[sub_resource type="CircleShape2D" id=78]
+radius = 20.025
+
+[sub_resource type="ParticlesMaterial" id=79]
+emission_shape = 5
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 10.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = -1.0
+orbit_velocity_random = 1.0
+radial_accel = 0.5
+radial_accel_random = 0.5
+damping = 1.0
+damping_random = 1.0
+angle_random = 1.0
+scale = 5.0
+color = Color( 0.0352941, 0.862745, 1, 0.294118 )
+
+[sub_resource type="ParticlesMaterial" id=80]
+emission_shape = 5
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 10.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 1.0
+orbit_velocity_random = 1.0
+radial_accel = 0.5
+radial_accel_random = 0.5
+damping = 1.0
+damping_random = 1.0
+angle_random = 1.0
+scale = 5.0
+color = Color( 0.0352941, 0.862745, 1, 0.294118 )
+
 [node name="Node2D" type="KinematicBody2D"]
 position = Vector2( 0, -21 )
 collision_layer = 2
@@ -572,3 +611,24 @@ pitch_scale = 0.66
 stream = ExtResource( 4 )
 volume_db = 12.235
 pitch_scale = 1.34
+
+[node name="Vortex" type="Area2D" parent="."]
+position = Vector2( 92, 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vortex"]
+scale = Vector2( 2.93776, 2.93776 )
+shape = SubResource( 78 )
+
+[node name="Particles2D2" type="Particles2D" parent="Vortex"]
+position = Vector2( -22, -28 )
+rotation = -1.57079
+amount = 30
+lifetime = 0.1
+process_material = SubResource( 79 )
+
+[node name="Particles2D3" type="Particles2D" parent="Vortex"]
+position = Vector2( -22, 26 )
+rotation = -1.57079
+amount = 30
+lifetime = 0.1
+process_material = SubResource( 80 )

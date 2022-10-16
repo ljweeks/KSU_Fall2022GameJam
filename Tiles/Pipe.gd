@@ -5,17 +5,17 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 onready var Game = get_node("/root/Game")
-export (float) var baseHeat = -7.5
-export (float) var maxHeat = 5
+export (float) var baseHeat = -1
+export (float) var maxHeat = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 var thisHeat : float = 0
-export (float) var tickRate = 3
+export (float) var tickRate = 1
 var tick = 0
-export (float) var heatIncreaseAmountPerTick = 0.1
+export (float) var heatIncreaseAmountPerTick = 0.05
 
 func _process(delta):
 	tick += delta
@@ -26,6 +26,9 @@ func _process(delta):
 		if(thisHeat > maxHeat):
 			thisHeat = maxHeat
 		#$Sprite.modulate = Color((thisHeat/5), 0, (-thisHeat/5))
+	
+	var heatPer = (thisHeat - baseHeat)/(maxHeat - baseHeat)
+	$Sprite.material.set_shader_param("heat", clamp(heatPer * 2 - 1, -1, 1))
 
 func freeze():
 	thisHeat -= 3
