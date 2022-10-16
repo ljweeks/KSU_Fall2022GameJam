@@ -13,77 +13,29 @@
 [node name="title" type="CanvasLayer"]
 script = ExtResource( 6 )
 
-[node name="Container" type="Container" parent="."]
+[node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -410, -74 )
 
-[node name="TextureRect" type="TextureRect" parent="Container"]
+[node name="TextureRect" type="TextureRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 5 )
 expand = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container"]
-stream = ExtResource( 7 )
-autoplay = true
-
-[node name="HighScore2" type="Label" parent="Container"]
-margin_left = 42.0
-margin_top = -248.0
-margin_right = 442.0
-margin_bottom = 442.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "High score"
-valign = 1
-
-[node name="Label" type="Label" parent="Container"]
-margin_left = 79.0
-margin_right = 465.0
-margin_bottom = 431.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "MORTON
-ANTIVIRUS "
-valign = 1
-
-[node name="ActualHighScore" type="Label" parent="Container"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 41.0
-margin_top = -618.0
-margin_right = 10.0
-margin_bottom = -117.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-valign = 1
-script = ExtResource( 9 )
-
-[node name="Label2" type="Label" parent="Container"]
-margin_left = 76.0
-margin_right = 462.0
-margin_bottom = 442.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "MORTON
-ANTIVIRUS "
-valign = 1
-
-[node name="play" type="Button" parent="Container"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -322.0
-margin_top = -50.0
-margin_right = -134.0
-margin_bottom = 23.0
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -401.0
+margin_bottom = 92.0
+rect_scale = Vector2( 0.75, 0.75 )
+
+[node name="play" type="Button" parent="Control/VBoxContainer"]
+margin_right = 476.0
+margin_bottom = 73.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = ExtResource( 3 )
@@ -92,16 +44,10 @@ custom_styles/normal = ExtResource( 2 )
 text = "PLAY"
 script = ExtResource( 8 )
 
-[node name="install" type="Button" parent="Container"]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -336.0
-margin_top = 69.0
-margin_right = 140.0
-margin_bottom = 142.0
-rect_scale = Vector2( 0.648016, 0.648016 )
+[node name="install" type="Button" parent="Control/VBoxContainer"]
+margin_top = 77.0
+margin_right = 476.0
+margin_bottom = 150.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 custom_styles/hover = ExtResource( 3 )
@@ -110,5 +56,65 @@ custom_styles/normal = ExtResource( 2 )
 text = "INSTALL GUIDE"
 script = ExtResource( 4 )
 
-[connection signal="pressed" from="Container/play" to="Container/play" method="_on_Button_pressed"]
-[connection signal="pressed" from="Container/install" to="Container/install" method="_on_Button_pressed"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -179.0
+margin_right = 386.0
+margin_bottom = 141.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer2"]
+margin_right = 386.0
+margin_bottom = 139.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "MORTON
+ANTIVIRUS "
+valign = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer2/Label2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.0
+margin_top = -73.0
+margin_right = 193.0
+margin_bottom = 69.5
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "MORTON
+ANTIVIRUS "
+valign = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="HighScore2" type="Label" parent="Control/VBoxContainer3"]
+margin_right = 400.0
+margin_bottom = 68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "High score"
+valign = 1
+
+[node name="ActualHighScore" type="Label" parent="Control/VBoxContainer3"]
+margin_top = 72.0
+margin_right = 400.0
+margin_bottom = 140.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+valign = 1
+script = ExtResource( 9 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource( 7 )
+autoplay = true
+
+[connection signal="pressed" from="Control/VBoxContainer/play" to="Control/VBoxContainer/play" method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/install" to="Control/VBoxContainer/install" method="_on_Button_pressed"]
