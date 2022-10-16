@@ -35,9 +35,11 @@ func user_input():
 	if velocity.length() > 0 and not walking:
 		walking = true
 		animationState.travel("Walk")
+		$FootstepPlayer.play()
 	elif velocity.length() <= 0 and walking:
 		walking = false
 		animationState.travel("Idle")
+		$FootstepPlayer.stop()
 	
 	if walking:
 		print(velocity.normalized())
@@ -48,12 +50,17 @@ func shoot(delta):
 	if Input.is_action_just_pressed("shoot_left"):
 		leftShot()
 		print("shoot")
+		$ShootPlayer.play()
 	if Input.is_action_pressed("shoot_right"):
+		if not $FreezeShootPlayer.playing:
+			$FreezeShootPlayer.play()
 		if shootTime <= 0.0:
 			shootTime = attackSpeed
 			rightShot(delta)
 		else:
 			shootTime -= delta
+	else:
+		$FreezeShootPlayer.stop()
 		
 		
 

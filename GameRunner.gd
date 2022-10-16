@@ -11,7 +11,7 @@ var batterySpawnPoints
 func _ready():
 	enemySpawnPoints = get_tree().get_nodes_in_group("EnemySpawn")
 	batterySpawnPoints = get_tree().get_nodes_in_group("BatterySpawn")
-
+	# OS.window_fullscreen = true
 
 # how often things happen
 var tickRate = 1

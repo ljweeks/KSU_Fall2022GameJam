@@ -8,6 +8,7 @@ var health = 10
 var target
 export (float) var speed = 100
 onready var nav = get_node("NavigationAgent2D")
+onready var death = preload("res://Enemies/FireFlyDeath.tscn")
 # Called when the node enters the scene tree for the first time.
 
 func find_new_target():
@@ -44,13 +45,21 @@ func _process(delta):
 	if target == null or not target.is_in_group("EnemyTarget"):
 		find_new_target()
 	
+func death(thunk=false):
+	var deathInstance = death.instance()
+	deathInstance.thunk = thunk
+	get_parent().add_child(deathInstance)
+	deathInstance.global_position = global_position
+	queue_free()
+
 func collide(body):
 	if body is Fan:
 		if body.powered == true:
-			queue_free()
-
+			death(true)
+			
 var bulletSpeed = 200
 func attack():
+	$ShootPlayer.play()
 	
 	var bullet = load("res://Enemies/enemyBullet.tscn").instance()
 	get_parent().add_child(bullet)
@@ -64,4 +73,4 @@ func attack():
 func damaged(amount):
 	health -= amount
 	if(health <=0):
-		queue_free()
+		death()

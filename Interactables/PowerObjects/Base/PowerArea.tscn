@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Sounds/powerup.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Interactables/PowerObjects/Base/PowerArea.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/powerdown.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -10,3 +12,9 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="PowerOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="PowerDown" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

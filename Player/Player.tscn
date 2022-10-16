@@ -1,7 +1,10 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/footstep.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sprites/Morton-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Sounds/freeze gun.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/shoot.ogg" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -555,3 +558,17 @@ position = Vector2( 0, 12 )
 rotation = 1.57079
 z_index = 2
 shape = SubResource( 77 )
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -13.984
+pitch_scale = 1.5
+
+[node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 0.66
+
+[node name="FreezeShootPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 12.235
+pitch_scale = 1.34

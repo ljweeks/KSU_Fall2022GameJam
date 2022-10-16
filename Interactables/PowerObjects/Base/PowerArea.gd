@@ -1,8 +1,15 @@
 extends Area2D
 class_name PowerArea
 
-export var providingPower = true
-export (int) var size = 100
+export var providingPower = true setget power_changed
+
+func power_changed(new_val):
+	if new_val:
+		$PowerOn.play()
+	else:
+		$PowerDown.play()
+	providingPower = new_val
+		
 
 func _ready():
 	#$CollisionShape2D.shape.Radius = size
