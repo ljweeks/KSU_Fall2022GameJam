@@ -31,10 +31,12 @@ func _process(delta):
 	tick += delta
 	if powerableObject.powered:
 		powered = true
+		$AnimatedSprite.material.set_shader_param("heat", -1)
 		if tick > tickRate:
 			Game.overload -= coolPower
 			fanDir()
 			tick = 0
 	else:
 		powered = false
+		$AnimatedSprite.material.set_shader_param("heat", 0)
 		$AnimatedSprite.stop()

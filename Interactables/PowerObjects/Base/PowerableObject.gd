@@ -13,4 +13,3 @@ func _process(delta):
 			hit = true
 			break;
 	powered = hit
-	$Sprite.visible = powered
