@@ -17,13 +17,14 @@ func _ready():
 var tickRate = 0.5
 var enemySpawnRate = 5.4
 var batterySpawnRate = 5
+var totalTime = 0
 
 var enemySpawnRateTick = 0
 var tick = 0
 var batterySpawnTick = 0
 var tempPerTick = 1
 func _process(delta):
-	
+	totalTime += delta
 	tick += delta
 	enemySpawnRateTick += delta
 	batterySpawnTick += delta
@@ -39,26 +40,38 @@ func _process(delta):
 		tick = 0
 		enemySpawnRate -= 0.005
 		if(enemySpawnRate < 3.5):
-			enemySpawnRate = 4
+			enemySpawnRate = 3.5
 		if(enemySpawnRate > 6):
-			enemySpawnRate = 5.5
+			enemySpawnRate = 6
 	if(overload > 165):
 		print("DEAD")
 		get_tree().paused = true
 
-	if(enemySpawnRateTick > enemySpawnRate):
+	if(enemySpawnRateTick > enemySpawnRate and totalTime > 20):
 		spawnEnemy()
 		enemySpawnRateTick = 0
-		
 	if(batterySpawnTick > batterySpawnRate):
 		spawnBattery()
 		batterySpawnTick = 0
 		
+	timeChanges()
+
+func timeChanges():
+	if totalTime > 180:
+		cap = 20
+		enemySpawnRate -= 0.05
+		return
+	if totalTime > 120:
+		cap = 15
+		enemySpawnRate -=0.025
+		return
+	if totalTime > 60:
+		cap = 10
+		return
+
 export (int) var totalBattery = 8
 
 func spawnBattery():
-
-	
 	if get_tree().get_nodes_in_group("battery").size() < totalBattery:
 		var allBats = []
 		for bat in batterySpawnPoints:
@@ -69,7 +82,10 @@ func spawnBattery():
 			get_parent().add_child(battery)
 			battery.global_position = allBats[rand_range(0, allBats.size())].global_position
 
+export (int) var cap = 8
 func spawnEnemy():
-	var enemy = load("res://Enemies/FireFly.tscn").instance()
-	get_parent().add_child(enemy)
-	enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position
+	var totalEnemies = get_tree().get_nodes_in_group("Enemy")
+	if totalEnemies.size() < cap:
+		var enemy = load("res://Enemies/FireFly.tscn").instance()
+		get_parent().add_child(enemy)
+		enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position

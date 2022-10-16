@@ -4,7 +4,7 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var health = 10
+var health = 8
 var target
 export (float) var speed = 200
 onready var nav = get_node("NavigationAgent2D")
