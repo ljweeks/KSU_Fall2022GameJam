@@ -42,8 +42,11 @@ func _process(delta):
 		var moveTarget = (moveTo - self.global_position).normalized()
 		self.apply_central_impulse(moveTarget*speed)
 	
-	if target == null or not target.is_in_group("EnemyTarget"):
+	if target == null: # or not target.is_in_group("EnemyTarget"):
 		find_new_target()
+	if not(target == null):
+		if not target.is_in_group("EnemyTarget"):
+			find_new_target()
 	
 func death(thunk=false):
 	var deathInstance = death.instance()

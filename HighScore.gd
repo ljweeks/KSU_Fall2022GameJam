@@ -1,15 +1,16 @@
-extends Node
+extends Label
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var Scores = []
-var lastScore
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	self.add_font_override("font",load("res://MiscResources/hacker_font.tres"))
+	var t = "Score: %0.2f"
+	self.text = t % Scores.Scores.max()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -45,6 +45,8 @@ func _process(delta):
 			enemySpawnRate = 6
 	if(overload > 165):
 		get_tree().paused = true
+		Scores.Scores.append(totalTime)
+		Scores.lastScore = totalTime
 		get_tree().change_scene("res://LostScreen.tscn")
 		
 
