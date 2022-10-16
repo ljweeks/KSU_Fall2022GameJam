@@ -70,7 +70,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["Enemy"]]
 collision_layer = 3
 collision_mask = 3
 mass = 30.0
@@ -85,7 +85,7 @@ shape = SubResource( 1 )
 material = ExtResource( 3 )
 frames = SubResource( 14 )
 animation = "FireFlyAnimation"
-frame = 10
+frame = 4
 playing = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
