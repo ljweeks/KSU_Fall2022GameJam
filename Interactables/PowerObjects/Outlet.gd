@@ -2,6 +2,11 @@ extends Area2D
 
 var current_plug = null
 var collision_disable_timer = 0
+export var power_area_collision_scale = 1
+onready var base_radius = $PowerArea/CollisionShape2D.shape.radius
+
+func _ready():
+	$PowerArea/CollisionShape2D.shape.radius = base_radius * power_area_collision_scale
 
 func _process(delta):
 	if collision_disable_timer > 0:
@@ -19,17 +24,24 @@ func release_plug(direction):
 		collision_disable_timer = 1
 		$PowerArea.providingPower = false
 		$EnemyTarget.target_active = false
+		$PlugSprite.visible = true
+		$PluggedSprite.visible = false
 
 func add_plug(body):
+	body.global_position = global_position
 	body.plugged = true
 	body.sleeping = true
-	body.global_position = global_position
+	body.force_update_transform()
 	current_plug = body
 	$PinJoint2D.node_b = current_plug.get_path()
 	body.global_position = global_position
+	body.force_update_transform()
+	$AudioStreamPlayer2D.play()
 	
 	$PowerArea.providingPower = true
 	$EnemyTarget.target_active = true
+	$PlugSprite.visible = false
+	$PluggedSprite.visible = true
 
 func _on_Area2D_body_entered(body):
 	if body is PlugEnd and current_plug == null:

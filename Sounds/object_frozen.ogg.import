@@ -11,5 +11,5 @@ dest_files=[ "res://.import/object_frozen.ogg-786c71843deb3207402148d130bf3c24.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

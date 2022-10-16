@@ -11,5 +11,5 @@ dest_files=[ "res://.import/thunk.ogg-e406f1c58da1d3e57fabb0d9208ce2ae.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
