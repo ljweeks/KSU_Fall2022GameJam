@@ -44,8 +44,8 @@ func _process(delta):
 		if(enemySpawnRate > 6):
 			enemySpawnRate = 6
 	if(overload > 165):
-		print("DEAD")
-		get_tree().change_scene("res://LoseScreen.tscn")
+		get_tree().paused = true
+		get_tree().change_scene("res://LostScreen.tscn")
 		
 
 	if(enemySpawnRateTick > enemySpawnRate and totalTime > 20):
