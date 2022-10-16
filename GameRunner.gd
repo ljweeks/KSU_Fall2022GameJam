@@ -57,6 +57,9 @@ func _process(delta):
 	timeChanges()
 
 func timeChanges():
+	if totalTime > 240:
+		cap = 50
+		enemySpawnRate -=0.1
 	if totalTime > 180:
 		cap = 20
 		enemySpawnRate -= 0.05
@@ -68,6 +71,7 @@ func timeChanges():
 	if totalTime > 60:
 		cap = 10
 		return
+	
 
 export (int) var totalBattery = 8
 

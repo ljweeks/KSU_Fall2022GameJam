@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ksu Fall 2022 Game Jam"
-run/main_scene="res://test.tscn"
+run/main_scene="res://MainGame.tscn"
 config/icon="res://icon.png"
 
 [gui]
