@@ -73,9 +73,9 @@ animations = [ {
 [node name="RigidBody2D" type="RigidBody2D" groups=["Enemy"]]
 collision_layer = 3
 collision_mask = 3
-mass = 30.0
+mass = 5.0
 gravity_scale = 0.0
-linear_damp = 2.0
+linear_damp = 3.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -85,7 +85,7 @@ shape = SubResource( 1 )
 material = ExtResource( 3 )
 frames = SubResource( 14 )
 animation = "FireFlyAnimation"
-frame = 4
+frame = 2
 playing = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

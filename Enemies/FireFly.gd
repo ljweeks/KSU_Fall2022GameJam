@@ -6,7 +6,7 @@ extends RigidBody2D
 # var b = "text"
 var health = 8
 var target
-export (float) var speed = 200
+export (float) var speed = 50
 onready var nav = get_node("NavigationAgent2D")
 onready var death = preload("res://Enemies/FireFlyDeath.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -42,8 +42,11 @@ func _process(delta):
 		var moveTarget = (moveTo - self.global_position).normalized()
 		self.apply_central_impulse(moveTarget*speed)
 	
-	if target == null or not target.is_in_group("EnemyTarget"):
+	if target == null: # or not target.is_in_group("EnemyTarget"):
 		find_new_target()
+	if not(target == null):
+		if not target.is_in_group("EnemyTarget"):
+			find_new_target()
 	
 func death(thunk=false):
 	var deathInstance = death.instance()

@@ -131,4 +131,4 @@ func update_vortex(delta):
 			var diff = global_position - (body.global_position + body.linear_velocity)
 			var dir = diff.normalized()
 			var mag = diff.length()
-			body.apply_central_impulse(diff*5 * 100 * delta)
+			body.apply_central_impulse(diff*5 * 120 * delta)

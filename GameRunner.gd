@@ -44,8 +44,13 @@ func _process(delta):
 		if(enemySpawnRate > 6):
 			enemySpawnRate = 6
 	if(overload > 165):
-		print("DEAD")
-		get_tree().change_scene("res://LoseScreen.tscn")
+		get_tree().paused = true
+		yield(get_tree(), "idle_frame")
+		Scores.Scores.append(totalTime)
+		yield(get_tree(), "idle_frame")
+		Scores.lastScore = totalTime
+		yield(get_tree(), "idle_frame")
+		get_tree().change_scene("res://LostScreen.tscn")
 		
 
 	if(enemySpawnRateTick > enemySpawnRate and totalTime > 20):
@@ -90,7 +95,7 @@ func spawnBattery():
 				allBats.append(bat)
 		if allBats.size() > 0:
 			var battery = load("res://Interactables/PowerObjects/Base/Battery.tscn").instance()
-			get_parent().add_child(battery)
+			add_child(battery)
 			battery.global_position = allBats[rand_range(0, allBats.size())].global_position
 
 export (int) var cap = 8
@@ -98,5 +103,5 @@ func spawnEnemy():
 	var totalEnemies = get_tree().get_nodes_in_group("Enemy")
 	if totalEnemies.size() < cap:
 		var enemy = load("res://Enemies/FireFly.tscn").instance()
-		get_parent().add_child(enemy)
+		add_child(enemy)
 		enemy.global_position = enemySpawnPoints[rand_range(0, enemySpawnPoints.size())].global_position

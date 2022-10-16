@@ -66,6 +66,10 @@ config/name="Ksu Fall 2022 Game Jam"
 run/main_scene="res://OtherScenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Scores="*res://Scores.gd"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
