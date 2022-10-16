@@ -4,7 +4,7 @@ onready var overload = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var maxTemp = 150
+var maxTemp = 175
 var enemySpawnPoints
 var batterySpawnPoints
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +15,7 @@ func _ready():
 
 # how often things happen
 var tickRate = 0.5
-var enemySpawnRate = 5
+var enemySpawnRate = 5.4
 var batterySpawnRate = 10
 
 var enemySpawnRateTick = 0
@@ -30,16 +30,21 @@ func _process(delta):
 	
 	if(tick > tickRate):
 		overload += tempPerTick
+		if(overload > 60):
+			enemySpawnRate += 0.1
 		if(overload > maxTemp):
 			overload = maxTemp
 		elif(overload < 0):
 			overload = 0
 		tick = 0
-		enemySpawnRate -= 0.005
-		if(enemySpawnRate < 3):
-			enemySpawnRate = 3
-	if(overload > 145):
+		enemySpawnRate -= 0.0075
+		if(enemySpawnRate < 3.5):
+			enemySpawnRate = 4
+		if(enemySpawnRate > 6):
+			enemySpawnRate = 5.5
+	if(overload > 165):
 		print("DEAD")
+		get_tree().paused = true
 
 	if(enemySpawnRateTick > enemySpawnRate):
 		spawnEnemy()

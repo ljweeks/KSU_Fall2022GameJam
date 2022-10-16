@@ -18,7 +18,7 @@ func _process(delta):
 
 func sicko(input):
 	if(input):
-		damage = 10
+		damage = 15
 	else:
 		damage = baseDamage
 
