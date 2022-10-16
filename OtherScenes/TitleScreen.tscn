@@ -145,7 +145,7 @@ stream = ExtResource( 11 )
 
 [connection signal="pressed" from="Control/VBoxContainer/play" to="Control/VBoxContainer/play" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/install" to="Control/VBoxContainer/install" method="_on_Button_pressed"]
-[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_Button_button_down"]
 [connection signal="button_down" from="Control/Button" to="Control/TextureRect2" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_Button_button_down"]
 [connection signal="button_up" from="Control/Button" to="Control/TextureRect2" method="_on_Button_button_up"]
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_Button_pressed"]
