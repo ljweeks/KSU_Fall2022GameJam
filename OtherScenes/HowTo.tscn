@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MiscResources/hacker_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://MiscResources/new_styleboxflat.tres" type="StyleBox" id=2]
+[ext_resource path="res://MiscResources/font select.tres" type="StyleBox" id=3]
+[ext_resource path="res://OtherScenes/OtherButton.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Finished Tutorial.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/gamejam song title loop.ogg" type="AudioStream" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -172.0
+margin_top = -73.0
+margin_right = 94.0
+margin_bottom = 25.0
+rect_scale = Vector2( 0.604574, 0.604574 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "BACK"
+script = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]

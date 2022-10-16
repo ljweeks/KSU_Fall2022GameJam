@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gamejam song title loop.ogg-e1c863ab9e5294ff0566511dca543d05.oggstr"
+
+[deps]
+
+source_file="res://Sounds/gamejam song title loop.ogg"
+dest_files=[ "res://.import/gamejam song title loop.ogg-e1c863ab9e5294ff0566511dca543d05.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
