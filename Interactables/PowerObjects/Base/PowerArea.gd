@@ -8,6 +8,7 @@ func power_changed(new_val):
 		$PowerOn.play()
 	else:
 		$PowerDown.play()
+	providingPower = new_val
 		
 
 func _ready():
